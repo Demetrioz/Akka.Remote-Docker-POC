@@ -9,9 +9,14 @@ services:
 
   api:
     build:
-      # context: ./RemoteAkkaTest.Api
       context: .
       dockerfile: Dockerfile-api
+    # environment:
+    # ASPNETCORE_URLS: https://+:443;http://+:80
+    # ASPNETCORE_Kestrel__Certificates__Default__Password: <PASSWORD>
+    # ASPNETCORE_Kestrel__Certificates__Default__Path: /https/dockerapp.pfx
+    volumes:
+      # - C:\Users\<USERNAME>\.aspnet\docker\https:/https/
     ports:
       - 8000:80
       - 8001:443
